@@ -1,0 +1,29 @@
+{
+    "presets": ["@babel/preset-env", "@babel/typescript", "@babel/react"],
+    "plugins": [
+        "@babel/proposal-class-properties", 
+        "@babel/proposal-object-rest-spread", 
+        "@babel/plugin-syntax-dynamic-import", 
+        "@babel/plugin-transform-runtime",
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "@actions": "./src/actions", 
+                "@assets": "./src/assets", 
+                "@selectors": "./src/selectors", 
+                "@reducers": "./src/reducers", 
+                "@components": "./src/components", 
+                "@layout": "./src/layout", 
+                "@utils": "./src/utils",
+                "@modules": "./src/modules", 
+                "@actionTypes": "./src/constants/ActionTypes", 
+                "@theme": "./src/constants/Theme", 
+                "@apps": "./src/apps", 
+                "@config": "./src/constants/Config", 
+                "@constants": "./src/constants/index", 
+                "@api": "./src/apiClient", 
+                "@testHelpers": "./src/__tests__/helpers"
+            }           
+        }]
+    ]
+}

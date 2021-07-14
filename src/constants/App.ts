@@ -16,7 +16,17 @@ export declare enum APP_URLS {
   CMP_REPORT = '/cmp-report',
 }
 
+export const cmpReport: AppConfig = {
+  name: APPS.CMP_REPORT,
+  title: 'Reporting Service',
+  tagLine: 'Report',
+  subTagLine: 'Portal',
+  url: '/cmp-report',
+};
+
+export const appList = [cmpReport];
+
 export declare const cmp: AppConfig;
-export declare const cmpReport: AppConfig;
+
 declare const apps: AppConfig[];
 export default apps;

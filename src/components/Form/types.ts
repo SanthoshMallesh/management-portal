@@ -1,10 +1,9 @@
 import { ReactElement } from 'react';
-
+import {Moment} from 'moment-timezone';
 export interface CustomFieldProps {
   field: FieldProps;
   uniqueId: string;
 }
-
 
 interface FieldInputProps {
   canRender?: boolean;
@@ -85,4 +84,11 @@ export interface FieldProps {
     //eslint-diable-next-line
     fromProps?: any,
   ) => FieldInputProps & (NumberInputProps | MultiSelectInputProps | TextAreaInputProps | CheckboxInputProps);
+}
+
+export interface DatePickerInputProps extends FieldInputProps {
+  minDate?: string | Moment;
+  maxDate?: string | Moment;
+  timeZone?: string | null;
+  onChange?: () => void;
 }

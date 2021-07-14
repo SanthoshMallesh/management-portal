@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
  * Components
  */
 import ErrorBoundary from '../components/ErrorBoundary';
-import Header from '../components/Header';
+import Header from '@components/Header';
 import theme from '../constants/Theme';
 import { useSelector } from 'react-redux';
 import { ReducersState } from '../reducers/index';
@@ -24,12 +24,12 @@ export default function Layout(props: LayoutProps): ReactElement {
   const render = (matchProps: Record<string, unknown>): ReactElement => (
     <ThemeProvider theme={theme}>
       <ErrorBoundary>
-        {/* <Header
+        <Header
           logout={logout}
           activeApp={APPS.CMP}
           app={APPS.CMP_REPORT}
           user={{ name: 'santhosh', email: 'santhosh@gmail.com', roles: ['admin'] }}
-        /> */}
+        />
         <NavTab />
         <Fragment>
           <div style={{ background: '#F4F4F4', width: '100%', minHeight: '100vh' }}>

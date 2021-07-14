@@ -1,0 +1,61 @@
+/* Plugins */
+@import '../../../node_modules/react-datepicker/dist/react-datepicker.min.css';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'components/icons.pcss';
+
+.react-datepicker-wrapper {
+  display: block !important;
+}
+.select {
+  &__value-container {
+    &&--is-multi {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+body {
+  font-family: 'Montserrat';
+  overflow: auto;
+  padding-top: 54px;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: 600;
+}
+
+.date-picker-input {
+  height: 38px;
+  font-size: 16px !important;
+}
+
+.input-placeholder::-webkit-input-placeholder {
+  color: #cbcdd0;
+  font-size: 12px;
+}
+
+.input-placeholder::placeholder {
+  color: #cbcdd0;
+  font-size: 12px;
+}
+
+[class*='Styles__NavBar'] {
+  box-shadow: none !important;
+}

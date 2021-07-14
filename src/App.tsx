@@ -9,6 +9,7 @@ import './assets/css/main.pcss';
 const Reports = lazy(() => import('./containers/Reports'));
 
 export default function App(): ReactElement {
+  console.log('App');
   return (
     <HistoryRouter>
       <Suspense fallback={<Loader />}>

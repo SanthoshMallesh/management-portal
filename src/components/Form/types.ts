@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import {Moment} from 'moment-timezone';
+import { Moment } from 'moment-timezone';
 export interface CustomFieldProps {
   field: FieldProps;
   uniqueId: string;
@@ -14,8 +14,8 @@ export interface FormProps {
   //eslint-disable-next-line
   fields: any;
   children: (
-    fields: ReactElement;
-    reserForm: () => void;
+    fields: ReactElement,
+    reserForm: () => void,
     values: { startDate: string; endDate: string; mpId: number; channel: string },
   ) => ReactElement;
   flowStatus: boolean;
@@ -70,7 +70,7 @@ export interface CheckboxInputProps extends FieldInputProps {
 }
 
 export interface FieldProps {
-  type: 'text' | 'number' | 'multiSelect' | 'date' | 'textarea' | 'checkbox' | 'imageUpload';
+  type: 'text' | 'number' | 'multiSelect' | 'date' | 'textarea' | 'checkbox' | 'imageUpload' | 'select';
   name: string;
   label?: string;
   gridSize?: number;

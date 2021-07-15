@@ -255,7 +255,7 @@ export default function ReportsForm(): ReactElement {
               Generate Report
             </PrimaryButton>
           </div>
-          {true && (
+          {enableLoadingModal && (
             <ModalStyle>
               <div>
                 <div style={{ height: 115, width: 115, marginLeft: 300 }}>

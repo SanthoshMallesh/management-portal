@@ -2,12 +2,13 @@ import actions from '../constants/ActionTypes';
 
 export interface Channel {
   id: number;
-  name?: string;
+  name: string;
   marketingProgram: { id: number; name: string; pgMpId: number; description: string };
   timeZone: { id?: number; timeZoneName?: string; timeZone?: string };
   currency: { code: string; id: number; name: string; symbol: string };
   locales: Array<{ id: number; name: string }>;
   country: { isoCode: string };
+  reports: string[];
 }
 
 export interface ChannelsState {
@@ -35,6 +36,6 @@ export default function channels(state: ChannelsState = defaultState, action: Ch
     case actions.FETCH_CHANNELS_FAIL:
       return { ...state, isFetching: false };
     default:
-      return state;
+      return { ...state };
   }
 }

@@ -13,7 +13,7 @@ import moment from 'moment';
 import styled from 'styled-components';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import axios from 'axios';
-import { Formik, FormikProps } from 'formik';
+import { FormikProps } from 'formik';
 
 const ModalStyle = styled.div`
   background-color: rgb(255, 255, 255);
@@ -63,8 +63,8 @@ export default function ReportsForm(): ReactElement {
   );
 
   const filterTypes = [
-    { valus: 1, label: 'Report Offer Performance', id: 'offer-performance' },
-    { valus: 1, label: 'Report Receipt Redemption', id: 'receipt-redemption' },
+    { value: 1, label: 'Report Offer Performance', id: 'offer-performance' },
+    { value: 1, label: 'Report Receipt Redemption', id: 'receipt-redemption' },
   ];
 
   const mpIds: Array<{ name: string; id: number }> = [];
@@ -74,14 +74,22 @@ export default function ReportsForm(): ReactElement {
   channels.forEach((channel: Channel) => {
     const { id, name, pgMpId } = channel.marketingProgram;
     const isDuplicate = mpIds.find(mpid => mpid.id === id);
+    console.log('channel :', channel);
+    console.log(!isDuplicate);
+    console.log(channel.reports.length);
     if (!isDuplicate && channel.reports.length > 0) {
+      console.log(true);
       pgMpids[id] = pgMpId;
       timeZone[id] = channel.timeZone.timeZone || '';
+      console.log({ name, id });
       mpIds.push({ name, id });
     }
   });
   mpIds.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
   const dispatch = useDispatch();
+
+  console.log('mpIds : ', JSON.stringify(mpIds));
+  console.log('channels : ', JSON.stringify(channels));
 
   return (
     <Form
@@ -171,6 +179,8 @@ export default function ReportsForm(): ReactElement {
               return {
                 options: getChannelList(channels, values.mpId),
                 disabled: !channels,
+                /* eslint-disable */
+                options: filterTypes.filter(filterType => channel && channel.reports.includes(filterType.id)),
                 onChange: (): void => {
                   formProps.setFieldValue('startDate', '');
                   formProps.setFieldTouched('startDate', false);

@@ -14,9 +14,7 @@ export default function Select(props: CustomFieldProps): ReactElement {
   const fieldProps = field.props ? (field.props(formProps.values, formProps) as MultiSelectInputProps) : {};
   const options = fieldProps && fieldProps.options ? fieldProps.options : [];
 
-  const selectedValue = options.filter(
-    (option: MultiSelectFieldOption) => meta.value && meta.value.include(option.value),
-  );
+  const selectedValue = options.find((option: MultiSelectFieldOption) => meta.value && meta.value === option.value);
 
   return (
     <ReactSelect
@@ -25,7 +23,7 @@ export default function Select(props: CustomFieldProps): ReactElement {
       closeMenuOnSelect={true}
       isClearable={true}
       isDisabled={fieldProps && fieldProps.disabled}
-      isMulti={true}
+      isMulti={false}
       isSearchable={true}
       inputId={uniqueId}
       classNamePrefix="select"

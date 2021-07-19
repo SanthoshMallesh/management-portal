@@ -10,6 +10,6 @@ interface EndPoints {
 
 export const endPoitns = (version = 'v1'): EndPoints => ({
   channelsUrl: `${version}/channels`,
-  fieldConfigUrl: `${version}/fieldConfigs`,
+  fieldConfigUrl: `${version}/fieldConfig`,
   performanceReport: `${version}/reports/offer-performance`,
 });
